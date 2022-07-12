@@ -14,11 +14,8 @@
 #include <WiFiClient.h>
 
 ESP8266WiFiMulti WiFiMulti;
-const int led = 2;
-const int buzzer = 0;
+
 void setup() {
-  pinMode(led, OUTPUT);
-  digitalWrite(led, LOW);
 
   Serial.begin(115200);
   // Serial.setDebugOutput(true);
@@ -64,24 +61,11 @@ void loop() {
           String payload = http.getString();
           //Serial.println(payload);
           //Serial.println("[{\"id\": 0, \"contrato\": \"servidorarchpc\", \"acceso\": \"1\"}]");
-          if (payload == "[{\"id\": 0, \"contrato\": \"orangepi2g\", \"acceso\": \"1\"}]")
+          if (payload == "[{\"id\": 0, \"contrato\": \"servidorarchpc\", \"acceso\": \"1\"}]")
           {
-            //WiFiClient client;
-            //HTTPClient http;
-            //http.begin(client, "http://192.168.20.143/on");
-            digitalWrite(led, HIGH);
-            tone(buzzer, 523);
-            delay(200);
-            noTone(buzzer);
-            delay(100);
-            tone(buzzer, 523);
-            delay(200);
-            noTone(buzzer);
-            delay(100);
-            tone(buzzer, 523);
-            delay(200);
-            noTone(buzzer);
-            digitalWrite(led, LOW);
+            WiFiClient client;
+            HTTPClient http;
+            http.begin(client, "http://192.168.20.143/on");
             int httpCode = http.GET();
             //Serial.printf("[HTTP] GET... code: %d\n", httpCode);
             delay(10000);
