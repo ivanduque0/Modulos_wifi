@@ -31,7 +31,7 @@ void setup() {
   }
 
   WiFi.mode(WIFI_STA);
-  WiFiMulti.addAP("oficina", "seguricell312");
+  WiFiMulti.addAP("ALC_Oficina", "S3gur1c3l_99");
 
 }
 
@@ -65,7 +65,7 @@ void loop() {
           {
             WiFiClient client;
             HTTPClient http;
-            http.begin(client, "http://192.168.20.143/on");
+            http.begin(client, "http://192.168.0.104/on");
             int httpCode = http.GET();
             //Serial.printf("[HTTP] GET... code: %d\n", httpCode);
             delay(10000);
