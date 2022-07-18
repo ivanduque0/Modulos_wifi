@@ -4,7 +4,7 @@
 #define LED_Red 16
 const char* ssid     = "ALC_Oficina";
 const char* password = "S3gur1c3l_99";
-const char* remote_host = "192.168.0.124";
+const char* remote_host = "192.168.0.125";
 void setup() {
   
   Serial.begin(115200);
@@ -41,4 +41,8 @@ void loop() {
     Serial.println("Offline");
     //delay(1000);
     
-  }}
+  }
+
+  delay(65000);
+  
+  }
